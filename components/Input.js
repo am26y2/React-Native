@@ -7,7 +7,7 @@ const Input = (props) => {
   return (
     <View style={styles.input}>
       <TextInput
-        style={{ backgroundColor: "white", color: "black" }}
+        style={{ backgroundColor: "white", color: "black", ...props.style }}
         maxLength={props.length}
         keyboardType={props.keyboardType}
         mode="outlined"
