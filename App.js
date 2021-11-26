@@ -13,19 +13,19 @@ const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <Login/>
-    // <NavigationContainer>
-    //   <Stack.Navigator
-    //     initialRouteName="Login"
-    //     screenOptions={{
-    //       headerShown: false,
-    //     }}
-    //   >
-    //     <Stack.Screen name="Login" component={Login} />
-    //     <Stack.Screen name="Register" component={Register} />
-    //     <Stack.Screen name="Popup" component={Popup} />
-    //   </Stack.Navigator>
-    // </NavigationContainer>
+    // <Login/>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Login"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Popup" component={Popup} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

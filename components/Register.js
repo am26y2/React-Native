@@ -77,19 +77,21 @@ export default function Register({ navigation }) {
               <HandleOtp text="I didn't receive an OTP" />
             </TouchableOpacity>
           </View>
+          <View style={{ alignItems: "center", bottom: -50 }}>
+            <TouchableOpacity
+              style={disabled ? styles.loginactive : styles.login}
+              activeOpacity={disabled ? 1 : 0.5}
+              onPress={() => {}}
+            >
+              <Text
+                style={disabled ? styles.loginTextinactive : styles.loginText}
+              >
+                Login
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </TouchableWithoutFeedback>
-      <View style={{ alignItems: "center", bottom: 0 }}>
-        <TouchableOpacity
-          style={disabled ? styles.loginactive : styles.login}
-          activeOpacity={disabled ? 1 : 0.5}
-          onPress={() => {}}
-        >
-          <Text style={disabled ? styles.loginTextinactive : styles.loginText}>
-            Login
-          </Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 }
@@ -97,7 +99,7 @@ export default function Register({ navigation }) {
 const styles = StyleSheet.create({
   screen: { backgroundColor: "#f2f2f2", height: "100%", flex: 1 },
   container: {
-    height: "75%",
+    flex: 1,
     display: "flex",
     justifyContent: "center",
   },
