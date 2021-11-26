@@ -15,13 +15,17 @@ import {
   Pressable,
 } from "native-base";
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+import { View } from "react-native";
+import Login from "./Login";
 
 export default function Menu() {
   const [selected, setSelected] = React.useState(1);
   return (
-    <NativeBaseProvider >
-      <Box flex={1} bg="#999999" safeAreaTop>
-        <Center flex={1}></Center>
+    <NativeBaseProvider
+      style={{ position: "absolute", left: 0, right: 0, bottom: 0 }}
+    >
+      <Login/>
+      <Box>
         <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={6}>
           <Pressable
             opacity={selected === 0 ? 1 : 0.5}
