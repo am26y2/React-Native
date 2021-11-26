@@ -6,7 +6,6 @@ import {
   Heading,
   VStack,
   FormControl,
-  Input,
   Link,
   Button,
   Icon,
@@ -15,18 +14,26 @@ import {
   Pressable,
 } from "native-base";
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
-import { View } from "react-native";
+import { View, StyleSheet, Dimensions } from "react-native";
 import Login from "./Login";
+import CustomCard from "./CustomCard";
+import Input from "./Input";
+import Header from "./Header";
 
 export default function Menu() {
   const [selected, setSelected] = React.useState(1);
   return (
     <NativeBaseProvider
-      style={{ position: "absolute", left: 0, right: 0, bottom: 0 }}
+    // style={{ position: "absolute", left: 0, right: 0, bottom: 0 }}
     >
-      <Login/>
-      <Box>
-        <HStack  alignItems="center" safeAreaBottom shadow={6}>
+      <Header />
+      <CustomCard>
+        <Input />
+        <Input />
+        <Input />
+      </CustomCard>
+      <Box style={styles.footer}>
+        <HStack alignItems="center" safeAreaBottom shadow={6}>
           <Pressable
             opacity={selected === 0 ? 1 : 0.5}
             py="3"
@@ -138,3 +145,12 @@ export default function Menu() {
     </NativeBaseProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  footer: {
+    position: "absolute",
+    zIndex: 1,
+    width: Dimensions.get("window").width,
+    bottom: 0,
+  },
+});

@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
+import CustomCard from "./CustomCard";
 import HandleOtp from "./HandleOtp";
 import Header from "./Header";
 import Input from "./Input";
@@ -33,73 +34,73 @@ export default function Login({ navigation }) {
           Keyboard.dismiss();
         }}
       >
-        <View style={styles.container}>
-          <View style={styles.mainconatiner}>
-            <View style={styles.inline}>
-              <View style={styles.buttonInactive} onPress={() => {}}>
-                <Text style={styles.buttontextColorInactive}>Login</Text>
+        <CustomCard>
+          <View>
+            <View>
+              <View style={styles.inline}>
+                <View style={styles.buttonInactive} onPress={() => {}}>
+                  <Text style={styles.buttontextColorInactive}>Login</Text>
+                </View>
+                <View>
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => {
+                      navigation.navigate("Register");
+                    }}
+                  >
+                    <Text style={styles.buttontextColor}>Register</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-              <View>
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={() => {
-                    navigation.navigate("Register");
-                  }}
-                >
-                  <Text style={styles.buttontextColor}>Register</Text>
+              <Input
+                label="Phone Number"
+                length={10}
+                value={number}
+                keyboardType={"number-pad"}
+                onClick={numberinputhandler}
+              />
+              <Input
+                label="OTP"
+                length={4}
+                value={otp}
+                keyboardType={"number-pad"}
+                onClick={numberinputhandlerOTP}
+              />
+              <View style={styles.inline}>
+                <HandleOtp
+                  style={{ color: "red" }}
+                  text="Incorrect OTP. Try again."
+                />
+                <TouchableOpacity>
+                  <HandleOtp text="Resend OTP" />
                 </TouchableOpacity>
               </View>
-            </View>
-            <Input
-              label="Phone Number"
-              length={10}
-              value={number}
-              keyboardType={"number-pad"}
-              onClick={numberinputhandler}
-            />
-            <Input
-              label="OTP"
-              length={4}
-              value={otp}
-              keyboardType={"number-pad"}
-              onClick={numberinputhandlerOTP}
-            />
-            <View style={styles.inline}>
-              <HandleOtp
-                style={{ color: "red" }}
-                text="Incorrect OTP. Try again."
-              />
               <TouchableOpacity>
-                <HandleOtp text="Resend OTP" />
+                <HandleOtp text="I didn't receive an OTP" />
               </TouchableOpacity>
             </View>
-            <TouchableOpacity>
-              <HandleOtp text="I didn't receive an OTP" />
-            </TouchableOpacity>
           </View>
-          <View style={{ alignItems: "center", bottom: -50 }}>
-            <TouchableOpacity
-              style={disabled ? styles.loginactive : styles.login}
-              activeOpacity={disabled ? 1 : 0.5}
-              onPress={() => {}}
-            >
-              <Text
-                style={disabled ? styles.loginTextinactive : styles.loginText}
-              >
-                Login
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        </CustomCard>
       </TouchableWithoutFeedback>
+      <View style={{ alignItems: "center", bottom: 100 }}>
+        <TouchableOpacity
+          style={disabled ? styles.loginactive : styles.login}
+          activeOpacity={disabled ? 1 : 0.5}
+          onPress={() => {}}
+        >
+          <Text style={disabled ? styles.loginTextinactive : styles.loginText}>
+            Login
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: { backgroundColor: "#f2f2f2", height: "100%", flex: 1 },
+  screen: { backgroundColor: "#f2f2f2", height: "100%" },
   container: {
-    flex:1,
+    flex: 1,
     display: "flex",
     justifyContent: "center",
   },

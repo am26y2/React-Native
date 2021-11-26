@@ -6,26 +6,25 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Popup from "./components/Popup";
 import Menu from "./components/Menu";
-import { Example } from "./components/Example";
 
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    // <Login/>
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Login"
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="Popup" component={Popup} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Menu/>
+    // <NavigationContainer>
+    //   <Stack.Navigator
+    //     initialRouteName="Login"
+    //     screenOptions={{
+    //       headerShown: false,
+    //     }}
+    //   >
+    //     <Stack.Screen name="Login" component={Login} />
+    //     <Stack.Screen name="Register" component={Register} />
+    //     <Stack.Screen name="Popup" component={Popup} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
   );
 }
 
