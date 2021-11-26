@@ -1,26 +1,26 @@
 import React from "react";
-import { StyleSheet, Image, View } from "react-native";
+import { StyleSheet, Image, View, Dimensions } from "react-native";
 
 export default function Header() {
   return (
-    <View style={styles.header}>
+    <View style={(styles.header)}>
       <Image
         style={{ height: 80, width: 80, alignContent: "flex-start" }}
         source={require("./../assets/logo.png")}
       />
-      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   header: {
     display:"flex",
-    flexDirection:"row",
     justifyContent:"space-between",
-    alignItems:"center",
-    top: 0,
-    paddingTop: 0,
+    flexDirection:"row",
+    paddingTop: 20,
     backgroundColor: "#2d3f4e",
-    alignItems: "center",
+    position: "absolute",
+    zIndex: 1,
+    width: Dimensions.get("window").width,
   },
 });

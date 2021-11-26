@@ -5,13 +5,15 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Popup from "./components/Popup";
+import Menu from "./components/Menu";
+import { Example } from "./components/Example";
 
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <Popup/>
+    <Login/>
     // <NavigationContainer>
     //   <Stack.Navigator
     //     initialRouteName="Login"
