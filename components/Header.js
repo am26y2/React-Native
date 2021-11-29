@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, Image, View, Dimensions } from "react-native";
 
-export default function Header() {
+export default function Header(props) {
   return (
-    <View style={(styles.header)}>
+    <View style={{...styles.header,...props.style}}>
       <Image
         style={{ height: 80, width: 80, alignContent: "flex-start" }}
         source={require("./../assets/logo.png")}

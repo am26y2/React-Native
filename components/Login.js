@@ -86,7 +86,9 @@ export default function Login({ navigation }) {
         <TouchableOpacity
           style={disabled ? styles.loginactive : styles.login}
           activeOpacity={disabled ? 1 : 0.5}
-          onPress={() => {}}
+          onPress={() => {
+            navigation.navigate("MyTab");
+          }}
         >
           <Text style={disabled ? styles.loginTextinactive : styles.loginText}>
             Login

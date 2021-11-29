@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 const CustomCard = (props) => {
   return (
-    <View style={styles.container}>
+    <View style={{...styles.container,...props.style}}>
       <View style={styles.mainconatiner}>{props.children}</View>
     </View>
   );

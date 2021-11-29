@@ -5,14 +5,14 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Popup from "./components/Popup";
-import Menu from "./components/Menu";
+import MyTabs from "./components/MyTabs";
 
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <Menu/>
+    <MyTabs/>
     // <NavigationContainer>
     //   <Stack.Navigator
     //     initialRouteName="Login"
