@@ -19,7 +19,7 @@ export default function Login({ navigation }) {
   const [number, setNumber] = useState("");
   const [resendotp, setResendOtp] = useState(false);
   const numberinputhandler = (inputText) => {
-    console.log(inputText);
+    // console.log(inputText);
     setNumber(inputText.replace(/[^0-9]/g, ""));
   };
   const [otp, setOTP] = useState("");
@@ -87,7 +87,7 @@ export default function Login({ navigation }) {
           style={disabled ? styles.loginactive : styles.login}
           activeOpacity={disabled ? 1 : 0.5}
           onPress={() => {
-            console.log(navigation.navigate("MyTabs"));
+            navigation.navigate("MyTabs");
           }}
         >
           <Text style={disabled ? styles.loginTextinactive : styles.loginText}>
