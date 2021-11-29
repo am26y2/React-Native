@@ -7,6 +7,7 @@ import Register from "./components/Register";
 import Popup from "./components/Popup";
 import Menu from "./components/Menu";
 import { Example } from "./components/Example";
+import KYC from "./components/KYC";
 
 
 const Stack = createNativeStackNavigator();
@@ -16,7 +17,7 @@ function App() {
     // <Login/>
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="KYC"
         screenOptions={{
           headerShown: false,
         }}
@@ -24,6 +25,7 @@ function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Popup" component={Popup} />
+        <Stack.Screen name="KYC" component={KYC} />
       </Stack.Navigator>
     </NavigationContainer>
   );
