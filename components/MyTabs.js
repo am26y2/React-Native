@@ -4,6 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import KYC from "./KYC";
+import AddCashLimits from "./AddCashLimits";
+import AddCash from "./AddCash";
 
 function Feed() {
   return (
@@ -14,17 +16,13 @@ function Feed() {
 }
 
 function Profile() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Profile!</Text>
-    </View>
-  );
+  return <AddCash />;
 }
 
 function Profile1() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Profile!</Text>
+      <AddCashLimits />
     </View>
   );
 }
@@ -37,11 +35,7 @@ function Menu() {
 }
 
 function Notifications() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Notifications!</Text>
-    </View>
-  );
+  return <AddCashLimits />;
 }
 
 const Tab = createMaterialBottomTabNavigator();
