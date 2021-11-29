@@ -15,8 +15,8 @@ import Header from "./Header";
 
 const AddCash = () => {
   const [disabled, setDisable] = useState(false);
-  const [money, setMoney] = useState(500);
-  const [CurrentMoney, setCurrentMoney] = useState(1000);
+  const [money, setMoney] = useState("500");
+  const [CurrentMoney, setCurrentMoney] = useState("1000");
   const numberinputhandler = (inputText) => {
     console.log(typeof(inputText));
     setMoney(inputText.replace(/[^0-9]/g, ""));
@@ -94,7 +94,7 @@ const AddCash = () => {
                 <TouchableOpacity
                   style={styles.button}
                   onPress={() => {
-                    // setMoney((prev) => +prev + 500);
+                    setMoney((prev) => (+prev + 500).toString());
                   }}
                 >
                   <View
@@ -112,7 +112,7 @@ const AddCash = () => {
                 <TouchableOpacity
                   style={styles.button}
                   onPress={() => {
-                    // setMoney((prev) => +prev + 1000);
+                    setMoney((prev) => (+prev + 1000).toString());
                   }}
                 >
                   <View
@@ -130,7 +130,7 @@ const AddCash = () => {
                 <TouchableOpacity
                   style={styles.button}
                   onPress={() => {
-                    // setMoney((prev) => +prev + 1500);
+                    setMoney((prev) => (+prev + 1500).toString());
                   }}
                 >
                   <View
