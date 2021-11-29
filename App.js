@@ -17,7 +17,7 @@ function App() {
     // <Login/>
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="AddCashLimits"
+        initialRouteName="KYC"
         screenOptions={{
           headerShown: false,
         }}

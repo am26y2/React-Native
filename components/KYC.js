@@ -1,26 +1,51 @@
 import React, {useState} from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions, ImagePickerIOS } from "react-native";
 import { TextInput } from "react-native-paper";
 import {Button} from 'react-native-elements';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import * as ImagePicker from 'expo-image-picker'
 import Header from "./Header";
 export default function KYC() {
   const [text, onChangeText] = useState("Useless Text");
   const [showNote, checkShowNote] = useState(false);
   const [bankDetailsUpdated, checkBankDetailsUpdated] = useState(false);
-  const [selectFileButton, showSelectFileButton] = useState(false);
+  const [selectFileButton, showSelectFileButton] = useState(true);
   const [uploadGuide, showUploadGuide] = useState(true);
   const [showTerms, showTermsAndConditions] = useState(false);
   const [selectedImage, selectedImageName] = useState('Pan_Rishab.jpg');
-  const [uploadButton, selectUploadButton] = useState(true);
+  const [uploadButton, selectUploadButton] = useState(false);
   const [showCalendar, showDateTimePicker] = useState(false);
   const [date, setDate] = useState(new Date(1598051730000));
   const [mode, setMode] = useState('date');
+  const [image, setImage] = useState(null);
+
+  const options = {
+    storageOptions: {
+      path: "images", 
+      mediaType: 'photo'
+    },
+    includeBase64: true,
+  };
 
   function onDOBChange(){
     const dateOfBirth = date;
     setDate(dateOfBirth);
   }
+
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
   return (
     <View>
       <Header />
@@ -154,7 +179,7 @@ export default function KYC() {
         {selectFileButton && (
           <View style={{ alignItems: "center", marginTop: 50}}>
             <TouchableOpacity>
-            <Button titleStyle={{color:"#2A3B4A", fontSize: 22, fontWeight: '500'}} buttonStyle={styles.selectFileButton} title="Select File"/>
+            <Button titleStyle={{color:"#2A3B4A", fontSize: 22, fontWeight: '500'}} buttonStyle={styles.selectFileButton} title="Select File" onPress={pickImage}/>
             </TouchableOpacity>
           </View>
         )}
