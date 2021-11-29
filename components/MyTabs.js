@@ -3,6 +3,7 @@ import { Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import KYC from "./KYC";
 
 function Feed() {
   return (
@@ -29,8 +30,8 @@ function Profile1() {
 }
 function Menu() {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Menu!</Text>
+    <View>
+      <KYC />
     </View>
   );
 }

@@ -1,9 +1,26 @@
-import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import React, {useState} from "react";
+import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
 import { TextInput } from "react-native-paper";
+import {Button} from 'react-native-elements';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import Header from "./Header";
 export default function KYC() {
-  const [text, onChangeText] = React.useState("Useless Text");
+  const [text, onChangeText] = useState("Useless Text");
+  const [showNote, checkShowNote] = useState(false);
+  const [bankDetailsUpdated, checkBankDetailsUpdated] = useState(false);
+  const [selectFileButton, showSelectFileButton] = useState(false);
+  const [uploadGuide, showUploadGuide] = useState(true);
+  const [showTerms, showTermsAndConditions] = useState(false);
+  const [selectedImage, selectedImageName] = useState('Pan_Rishab.jpg');
+  const [uploadButton, selectUploadButton] = useState(true);
+  const [showCalendar, showDateTimePicker] = useState(false);
+  const [date, setDate] = useState(new Date(1598051730000));
+  const [mode, setMode] = useState('date');
+
+  function onDOBChange(){
+    const dateOfBirth = date;
+    setDate(dateOfBirth);
+  }
   return (
     <View>
       <Header />
@@ -23,7 +40,7 @@ export default function KYC() {
             </Text>
           </View>
           <Text style={styles.kycHeading}>KYC</Text>
-          <View style={styles.inputContainer}>
+          {/* <View style={styles.inputContainer}>
             <View style={{ marginLeft: 20, marginRight: 20, padding: 10 }}>
               <TextInput
                 theme={{ roundness: 10 }}
@@ -31,7 +48,7 @@ export default function KYC() {
                 length={10}
                 style={styles.input}
                 mode="outlined"
-                activeOutlineColor="#E5E5E5"
+                activeOutlineColor="#3A3B3C"
                 right={<TextInput.Icon name="pencil" color="grey" />}
               />
 
@@ -41,7 +58,7 @@ export default function KYC() {
                 length={10}
                 style={styles.input2}
                 mode="outlined"
-                activeOutlineColor="#E5E5E5"
+                activeOutlineColor="#3A3B3C"
                 right={<TextInput.Icon name="pencil" color="grey" />}
               />
 
@@ -57,15 +74,102 @@ export default function KYC() {
                 &#9432; Your Bank Account details are not Up to date.
               </Text>
             </View>
+          </View> */}
+
+          {/* 2nd KYC screen */}
+          <View style={styles.inputContainer}>
+            <View style={{ marginLeft: 20, marginRight: 20, padding: 10 }}>
+              <TextInput
+                theme={{ roundness: 10 }}
+                label="Pan Number"
+                length={10}
+                style={styles.input}
+                mode="outlined"
+                activeOutlineColor="#3A3B3C"
+                right={<TextInput.Icon name="pencil" color="grey" />}
+              />
+
+              <TextInput
+                theme={{ roundness: 10 }}
+                label="Date of Birth"
+                placeholder="DD/MM/YYYY"
+                length={10}
+                style={styles.input2}
+                mode="outlined"
+                activeOutlineColor="#3A3B3C"
+                right={<TextInput.Icon name="pencil" color="grey" />}
+                onFocus={() => showDateTimePicker(true)}
+              />
+              {bankDetailsUpdated && (
+                <Text
+                  style={{
+                    textAlign: "left",
+                    color: "#BD311E",
+                    fontWeight: "700",
+                    marginBottom: 10,
+                    fontSize: 12,
+                  }}
+                >
+                  &#9432; Your Bank Account details are not Up to date.
+                </Text>
+              )}
+            </View>
           </View>
+          {showNote && (
+            <Text style={{ fontSize: 12, marginLeft: 15, marginRight: 15 }}>
+              {showNote}Note : The verification process may take upto 48 hours
+              from the time of Submission. Do not send or Submit any Documents
+              over email. Upload them only here.
+            </Text>
+          )}
+          {showCalendar && <DateTimePicker
+          testID="dateTimePicker"
+          value={date}
+          mode={mode}
+          is24Hour={true}
+          display="default"
+          onChange={onDOBChange}
+        />}
+          {uploadGuide && (
+            <View style={{margin: 10}}>
+              <Text style={{fontSize: 12, fontWeight: '700'}}>Guide to Upload</Text>
+              <View style={{flexDirection: 'row'}}>
+                <Text>{'\u2022'}</Text>
+                <Text style={{flex: 1, paddingLeft: 5, fontSize: 12}}>Please provide jpg, jpeg, png formats only</Text>
+              </View>
+              <View style={{flexDirection: 'row'}}>
+                <Text>{'\u2022'}</Text>
+                <Text style={{flex: 1, paddingLeft: 5, fontSize: 12}}>Ensure that your Name, Photo PAN Number is visible on the image/PDF</Text>
+              </View>
+            </View>
+          )}
         </View>
-        <View>
+        {showTerms &&  <View>
           <Text style={styles.terms}>Terms and Conditions</Text>
-        </View>
+        </View>}
+        {selectedImage && <View  style={styles.selectedImage}>
+            <Text style={{backgroundColor: "#D2D2D2",padding: 5, borderRadius: 5}}>{selectedImage} is selected</Text>
+          </View>}
+       
+        {selectFileButton && (
+          <View style={{ alignItems: "center", marginTop: 50}}>
+            <TouchableOpacity>
+            <Button titleStyle={{color:"#2A3B4A", fontSize: 22, fontWeight: '500'}} buttonStyle={styles.selectFileButton} title="Select File"/>
+            </TouchableOpacity>
+          </View>
+        )}
+        {uploadButton && (
+          <View style={{ alignItems: "center", marginTop: 50}}>
+            <TouchableOpacity>
+            <Button titleStyle={{color:"#2A3B4A", fontSize: 22, fontWeight: '500'}} buttonStyle={styles.selectFileButton} title="Upload"/>
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   mainKYCContainer: {
     margin: 10,
@@ -101,4 +205,15 @@ const styles = StyleSheet.create({
     textAlignVertical: "center",
     textDecorationLine: "underline",
   },
+  selectFileButton: {
+    backgroundColor: '#F1CE47',
+    width: Dimensions.get("window").width * 0.8,
+    padding: 10,
+    borderRadius: 10
+  },
+  selectedImage: {
+    padding: 5,
+    alignItems: "center", 
+    marginTop: 30
+  }
 });
