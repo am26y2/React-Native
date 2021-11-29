@@ -27,10 +27,10 @@ function Profile1() {
     </View>
   );
 }
-function Profile2() {
+function Menu() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Profile!</Text>
+      <Text>Menu!</Text>
     </View>
   );
 }
@@ -97,8 +97,8 @@ export default function MyTabs() {
       />
 
       <Tab.Screen
-        name="Profile2"
-        component={Profile2}
+        name="Menu"
+        component={Menu}
         options={{
           tabBarLabel: "Menu",
           tabBarIcon: ({ color }) => (
