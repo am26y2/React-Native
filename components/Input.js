@@ -12,8 +12,10 @@ const Input = (props) => {
         keyboardType={props.keyboardType}
         mode="outlined"
         label={props.label}
-        placeholder=""
-        value={props.value}
+        placeholder={props.placeholder}
+        value={text}
+        activeOutlineColor="#323232"
+        color="#323232"
         onChangeText={props.onClick}
       />
     </View>
