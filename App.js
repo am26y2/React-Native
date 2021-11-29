@@ -9,7 +9,6 @@ import { Example } from "./components/Example";
 import KYC from "./components/KYC";
 import MyTabs from "./components/MyTabs";
 
-
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -17,7 +16,7 @@ function App() {
     // <Login/>
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="KYC"
+        initialRouteName="Login"
         screenOptions={{
           headerShown: false,
         }}
@@ -26,6 +25,7 @@ function App() {
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Popup" component={Popup} />
         <Stack.Screen name="KYC" component={KYC} />
+        <Stack.Screen name="MyTabs" component={MyTabs} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -35,7 +35,6 @@ function Profile2() {
   );
 }
 
-
 function Notifications() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -46,11 +45,12 @@ function Notifications() {
 
 const Tab = createMaterialBottomTabNavigator();
 
-function MyTabs() {
+export default function MyTabs() {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
       activeColor="#1C71C2"
+      screenOptions={{ headerShown: false }}
       labelStyle={{ fontSize: 12 }}
       barStyle={{ backgroundColor: "#FFFFFF" }}
     >
@@ -107,13 +107,5 @@ function MyTabs() {
         }}
       />
     </Tab.Navigator>
-  );
-}
-
-export default function App() {
-  return (
-    <NavigationContainer>
-      <MyTabs />
-    </NavigationContainer>
   );
 }

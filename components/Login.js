@@ -87,7 +87,7 @@ export default function Login({ navigation }) {
           style={disabled ? styles.loginactive : styles.login}
           activeOpacity={disabled ? 1 : 0.5}
           onPress={() => {
-            navigation.navigate("MyTab");
+            console.log(navigation.navigate("MyTabs"));
           }}
         >
           <Text style={disabled ? styles.loginTextinactive : styles.loginText}>
