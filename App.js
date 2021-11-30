@@ -10,6 +10,7 @@ import KYC from "./components/KYC";
 import MyTabs from "./components/MyTabs";
 import Withdrawals from "./components/Withdrawals/Withdrawals";
 import Preferences from "./components/Preferences";
+import Account_Statement from "./components/Account_Statement";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ function App() {
         <Stack.Screen name="MyTabs" component={MyTabs} />
         <Stack.Screen name="Withdrawals" component={Withdrawals} />
         <Stack.Screen name="Preferences" component={Preferences} />
+        <Stack.Screen name="Account_Statement" component={Account_Statement} />
       </Stack.Navigator>
     </NavigationContainer>
   );
