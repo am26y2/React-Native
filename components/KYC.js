@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions, ImagePickerIOS } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions} from "react-native";
 import { TextInput } from "react-native-paper";
 import {Button} from 'react-native-elements';
 import DateTimePicker from '@react-native-community/datetimepicker';
