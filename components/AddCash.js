@@ -159,7 +159,7 @@ const AddCash = () => {
               <Text
                 style={disabled ? styles.loginTextinactive : styles.loginText}
               >
-                Save Changes
+                ADD {money}
               </Text>
             </TouchableOpacity>
           </View>
