@@ -11,7 +11,15 @@ const SentNotification = () => {
     { id: 5, txt: "Do Not Disturb", isChecked: false },
   ]);
   function setSelection(el) {
-    console.log(el.target.name);
+    console.log(el);
+    const newdata=data.map((curr)=>{
+        if(curr.id===el){
+            return {...curr}
+        }
+        return curr;
+    },[]);
+    // SetData(newdata)
+    console.log(newdata);
   }
 
   return (
@@ -41,7 +49,7 @@ const SentNotification = () => {
           >
             <Checkbox
               status={item.isChecked}
-              onPress={(item) => setSelection(item)}
+              onPress={() => setSelection(item.id)}
             />
             <Text style={{ fontSize: 20 }}>{item.txt}</Text>
           </View>
