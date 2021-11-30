@@ -18,7 +18,7 @@ function App() {
     // <Login/>
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Language"
+        initialRouteName="Withdrawals"
         screenOptions={{
           headerShown: false,
         }}

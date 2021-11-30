@@ -17,14 +17,15 @@ export default function Withdrawals() {
         {isProcessedByBank: 'Processed by Bank', dateTime: '24 Aug, 11:37 AM', amount: '1000.00', transactionID: '#0849728', key: Math.random() * 10000},
         {isProcessedByBank: 'Processed by Bank', dateTime: '24 Aug, 11:37 AM', amount: '1000.00', transactionID: '#0849728', key: Math.random() * 10000},
         {isProcessedByBank: 'Processed by Bank', dateTime: '24 Aug, 11:37 AM', amount: '1000.00', transactionID: '#0849728', key: Math.random() * 10000},
-        {isProcessedByBank: 'Processed by Bank', dateTime: '24 Aug, 11:37 AM', amount: '1000.00', transactionID: '#0849728', key: Math.random() * 10000},
-        {isProcessedByBank: 'Processed by Bank', dateTime: '24 Aug, 11:37 AM', amount: '1000.00', transactionID: '#0849728', key: Math.random() * 10000},
-        {isProcessedByBank: 'Processed by Bank', dateTime: '24 Aug, 11:37 AM', amount: '1000.00', transactionID: '#0849728', key: Math.random() * 10000},
-        {isProcessedByBank: 'Processed by Bank', dateTime: '24 Aug, 11:37 AM', amount: '1000.00', transactionID: '#0849728', key: Math.random() * 10000},
-        {isProcessedByBank: 'Processed by Bank', dateTime: '24 Aug, 11:37 AM', amount: '1000.00', transactionID: '#0849728', key: Math.random() * 10000},
-        {isProcessedByBank: 'Processed by Bank', dateTime: '24 Aug, 11:37 AM', amount: '1000.00', transactionID: '#0849728', key: Math.random() * 10000},
-    ])
+    ]);
+    const [boosterInfo,setBoosterInfo] = useState([
+        {booster: 'BOOSTER 2K', amount: '1000.00', of: '1750', boosterId: '#28436372', expiryDate: '24 Aug, 11: 37 AM', status: 'ACTIVE', key: Math.random() * 10000},
+        {booster: 'BOOSTER 2K', amount: '1000.00', of: '1750', boosterId: '#28436372', expiryDate: '24 Aug, 11: 37 AM', status: 'CLAIMED', key: Math.random() * 10000},
+        {booster: 'BOOSTER 2K', amount: '1000.00', of: '1750', boosterId: '#28436372', expiryDate: '24 Aug, 11: 37 AM', status: 'EXPIRED', key: Math.random() * 10000},
+    ]);
     const [requestWithdrawal, setRequestWithdrawal] = useState(true);
+    const [bonusBooster, setBonusBooster] = useState(true);
+
     return (
         <View>
             <Header/>
@@ -43,9 +44,9 @@ export default function Withdrawals() {
               Back
             </Text>
           </View>
-          {!requestWithdrawal && <View>
+          {requestWithdrawal && <View>
                 <Text  style={{marginTop: 20,marginBottom: 15,marginLeft: 15,fontFamily: 'Roboto',fontSize: 16, fontWeight: '700'}}>Withdrawals</Text>
-                <FlatList data={withdrawals} renderItem={({ item }) => (
+                {!bonusBooster && <FlatList data={withdrawals} renderItem={({ item }) => (
                     <View style={styles.listGroup}>
                         <View style={styles.listItem}>
                         <Text style={styles.processBank}>{item.isProcessedByBank}</Text>
@@ -56,10 +57,27 @@ export default function Withdrawals() {
                         <Text style={styles.transaction}>{item.transactionID}</Text>
                         </View>
                     </View>
-                )}/>
+                )}/>}
+                {bonusBooster && <FlatList data={boosterInfo}  renderItem={({item}) => (
+                    <View>
+                    <View style={styles.listGroup}>
+                        <View style={styles.listItem}>
+                            <Text style={styles.processBank}>{item.booster}</Text>
+                            <Text style={styles.processBank}>{item.amount} of {item.of}</Text>
+                        </View>
+                        <View style={styles.listItem1}>
+                            <Text style={styles.date}>{item.boosterId}</Text>
+                            <Text style={styles.transaction}>Expires on {item.expiryDate}</Text>
+                        </View>
+                        <Text style={{fontSize: 10, backgroundColor: 'rgba(139, 255, 210, 0.3)', textAlign: 'center', top: 10,display: 'flex', marginLeft: -10, marginRight: -10}}>{item.status}</Text>
+                    </View>
+                    </View>
+                )}
+
+                />}
             </View>}
 
-            {requestWithdrawal && <RequestWithdrawal />}
+            {!requestWithdrawal && <RequestWithdrawal />}
         </View>
         </View>
     )
