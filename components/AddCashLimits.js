@@ -105,7 +105,7 @@ export default AddCashLimits;
 
 const styles = StyleSheet.create({
   money: {
-    marginTop: Dimensions.get("window").height / 100,
+    // marginTop: Dimensions.get("window").height / 1,
     display: "flex",
     borderWidth: 1,
     borderRadius: 50,

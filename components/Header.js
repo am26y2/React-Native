@@ -25,5 +25,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     zIndex: 1,
     width: Dimensions.get("window").width,
+    alignItems:"center"
   },
 });

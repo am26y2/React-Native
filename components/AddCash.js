@@ -173,7 +173,6 @@ export default AddCash;
 
 const styles = StyleSheet.create({
   money: {
-    marginTop: Dimensions.get("window").height / 100,
     display: "flex",
     borderWidth: 1,
     borderRadius: 50,
