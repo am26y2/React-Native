@@ -1,13 +1,14 @@
 import * as React from "react";
 import { Text, View, StyleSheet } from "react-native";
+import { Picker } from "@react-native-picker/picker";
 import Constants from "expo-constants";
-import DropDownPicker from "react-native-dropdown-picker";
 
 export default function Language() {
   return (
     <View style={styles.container}>
       <Text style={styles.paragraph}>React native dropdown picker</Text>
-      <DropDownPicker
+      {/* <DropDownPicker
+      style={{zIndex: 1000, elevation: 1000 }}
         items={[
           { label: "English", value: "en" },
           { label: "Deutsch", value: "de" },
@@ -16,7 +17,12 @@ export default function Language() {
         defaultIndex={0}
         containerStyle={{ height: 40 }}
         onChangeItem={(item) => console.log(item.label, item.value)}
-      />
+      /> */}
+      <Picker>
+        <Picker.Item label="English" value="en" />
+        <Picker.Item label="Deutsch" value="de" />
+        <Picker.Item label="French" value="fr" />
+      </Picker>
     </View>
   );
 }
@@ -28,6 +34,7 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight,
     backgroundColor: "#ecf0f1",
     padding: 8,
+    height: 400
   },
   paragraph: {
     margin: 24,
