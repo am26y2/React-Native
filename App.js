@@ -9,7 +9,7 @@ import { Example } from "./components/Example";
 import KYC from "./components/KYC";
 import MyTabs from "./components/MyTabs";
 import Withdrawals from "./components/Withdrawals/Withdrawals";
-import Language from "./components/Language/Language"
+import Preferences from "./components/Preferences";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,7 +18,7 @@ function App() {
     // <Login/>
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Withdrawals"
+        initialRouteName="Preferences"
         screenOptions={{
           headerShown: false,
         }}
@@ -29,7 +29,7 @@ function App() {
         <Stack.Screen name="KYC" component={KYC} />
         <Stack.Screen name="MyTabs" component={MyTabs} />
         <Stack.Screen name="Withdrawals" component={Withdrawals} />
-        <Stack.Screen name="Language" component={Language} />
+        <Stack.Screen name="Preferences" component={Preferences} />
       </Stack.Navigator>
     </NavigationContainer>
   );
