@@ -6,6 +6,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import KYC from "./KYC";
 import AddCashLimits from "./AddCashLimits";
 import AddCash from "./AddCash";
+import Notifications from "./Notifications";
 
 function Feed() {
   return (
@@ -34,9 +35,6 @@ function Menu() {
   );
 }
 
-function Notifications() {
-  return <AddCashLimits />;
-}
 
 const Tab = createMaterialBottomTabNavigator();
 
