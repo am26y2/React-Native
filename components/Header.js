@@ -1,7 +1,9 @@
-import React from "react";
-import { StyleSheet, Image, View, Dimensions } from "react-native";
+import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import React, { useState } from "react";
+import { StyleSheet, Image, View, Dimensions, Text } from "react-native";
 
 export default function Header(props) {
+  const [login, Setlogin] = useState(true);
   return (
     <View style={{ ...styles.header, ...props.style }}>
       <View style={{ flex: 1 }}>
@@ -10,7 +12,15 @@ export default function Header(props) {
           source={require("./../assets/logo.png")}
         />
       </View>
-      <View style={{ flex: 1 }}>{props.children}</View>
+      {login && (
+        <View style={{ flex: 1 }}>
+          <View style={styles.money}>
+            <MaterialCommunityIcons name="wallet" color="#F1CE47" size={48} />
+            <Text style={styles.text}>1000</Text>
+            <AntDesign name="pluscircle" size={48} color="#F1CE47" />
+          </View>
+        </View>
+      )}
     </View>
   );
 }
@@ -25,6 +35,19 @@ const styles = StyleSheet.create({
     position: "absolute",
     zIndex: 1,
     width: Dimensions.get("window").width,
-    alignItems:"center"
+    alignItems: "center",
+  },
+  money: {
+    display: "flex",
+    borderWidth: 1,
+    borderRadius: 50,
+    padding: 5,
+    borderColor: "#F1CE47",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  text: {
+    color: "white",
   },
 });

@@ -18,19 +18,13 @@ const AddCash = () => {
   const [money, setMoney] = useState("500");
   const [CurrentMoney, setCurrentMoney] = useState("1000");
   const numberinputhandler = (inputText) => {
-    console.log(typeof(inputText));
+    console.log(typeof inputText);
     setMoney(inputText.replace(/[^0-9]/g, ""));
   };
 
   return (
     <View>
-      <Header style={{ position: "relative" }}>
-        <View style={styles.money}>
-          <MaterialCommunityIcons name="wallet" color="#F1CE47" size={48} />
-          <Text style={styles.text}>1000</Text>
-          <AntDesign name="pluscircle" size={48} color="#F1CE47" />
-        </View>
-      </Header>
+      <Header style={{ position: "relative" }} />
       <TouchableOpacity
         style={{
           display: "flex",
@@ -106,7 +100,7 @@ const AddCash = () => {
                     }}
                   >
                     <AntDesign name="pluscircle" size={20} color="#F1CE47" />
-                    <Text style={styles.buttontextColor}>{+money+500}</Text>
+                    <Text style={styles.buttontextColor}>{+money + 500}</Text>
                   </View>
                 </TouchableOpacity>
                 <TouchableOpacity

@@ -37,13 +37,7 @@ const Notifications = () => {
   ]);
   return (
     <View>
-      <Header style={{ position: "relative" }}>
-        <View style={styles.money}>
-          <MaterialCommunityIcons name="wallet" color="#F1CE47" size={48} />
-          <Text style={styles.text}>1000</Text>
-          <AntDesign name="pluscircle" size={48} color="#F1CE47" />
-        </View>
-      </Header>
+      <Header style={{ position: "relative" }} />
       <TouchableOpacity
         style={{
           display: "flex",
@@ -73,7 +67,7 @@ const Notifications = () => {
                   flexDirection: "row",
                   // flexWrap: "wrap",
                   justifyContent: "space-around",
-                  paddingHorizontal:10
+                  paddingHorizontal: 10,
                 }}
               >
                 <View>
@@ -82,7 +76,7 @@ const Notifications = () => {
                     source={require("./../assets/Notification.png")}
                   />
                 </View>
-                <View style={{paddingLeft:40}}>
+                <View style={{ paddingLeft: 40 }}>
                   <Text>{el}</Text>
                 </View>
               </View>

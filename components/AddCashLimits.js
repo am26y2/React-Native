@@ -21,13 +21,7 @@ const AddCashLimits = () => {
 
   return (
     <View>
-      <Header style={{ position: "relative" }}>
-        <View style={styles.money}>
-          <MaterialCommunityIcons name="wallet" color="#F1CE47" size={48} />
-          <Text style={styles.text}>1000</Text>
-          <AntDesign name="pluscircle" size={48} color="#F1CE47" />
-        </View>
-      </Header>
+      <Header style={{ position: "relative" }} />
       <TouchableOpacity
         style={{
           display: "flex",
