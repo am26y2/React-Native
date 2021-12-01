@@ -11,6 +11,7 @@ import MyTabs from "./components/MyTabs";
 import Withdrawals from "./components/Withdrawals/Withdrawals";
 import Preferences from "./components/Preferences";
 import Account_Statement from "./components/Account_Statement";
+import Referral from "./components/Referrals/Referral";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,7 +20,7 @@ function App() {
     // <Login/>
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="Referral"
         screenOptions={{
           headerShown: false,
         }}
@@ -32,6 +33,8 @@ function App() {
         <Stack.Screen name="Withdrawals" component={Withdrawals} />
         <Stack.Screen name="Preferences" component={Preferences} />
         <Stack.Screen name="Account_Statement" component={Account_Statement} />
+        <Stack.Screen name="Referral" component={Referral} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
