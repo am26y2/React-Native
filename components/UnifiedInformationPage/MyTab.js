@@ -30,12 +30,22 @@ export default function MyTab() {
   return (
     <>
       <Header />
-      <Tab.Navigator >
+      <Tab.Navigator
+        tabBarOptions={{
+          style: {
+            activeTintColor: "red",
+            inactiveTintColor: "lightgray",
+            backgroundColor: "#2d3f4e",
+          },
+          activeTintColor: "#FFFFFF",
+          inactiveTintColor: "#818181",
+        }}
+      >
         <Tab.Screen name="About" component={About} />
-        <Tab.Screen name="How_to_Play" component={How_to_Play} />
+        <Tab.Screen name="How to Play" component={How_to_Play} />
         <Tab.Screen name="FAQs" component={FAQs} />
         <Tab.Screen name="Blog" component={Blog} />
-        <Tab.Screen name="Tips_Tricks" component={Tips_Tricks} />
+        <Tab.Screen name="Tips Tricks" component={Tips_Tricks} />
       </Tab.Navigator>
     </>
   );

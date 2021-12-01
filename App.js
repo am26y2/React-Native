@@ -22,7 +22,6 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="MyTab"
-        initialRouteName="Referral"
         screenOptions={{
           headerShown: false,
         }}

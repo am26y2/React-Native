@@ -35,7 +35,7 @@ export default Header;
 const styles = StyleSheet.create({
   header: {
     paddingLeft: 20,
-    paddingVertical: 40,
+    paddingTop: 40,
     backgroundColor: "#2d3f4e",
     width: Dimensions.get("window").width,
     alignItems: "center",
