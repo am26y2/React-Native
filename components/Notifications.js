@@ -13,6 +13,8 @@ import Header from "./Header";
 
 const Notifications = () => {
   const [message, setMessage] = useState([
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed nisi pharetra, viverra est vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed nisi pharetra, viverra est vitae.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed nisi pharetra, viverra est vitae.",
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed nisi pharetra, viverra est vitae.",
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed nisi pharetra, viverra est vitae.",
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed nisi pharetra, viverra est vitae.",
@@ -64,7 +66,26 @@ const Notifications = () => {
         <ScrollView style={{ marginBottom: 10 }}>
           {message.map((el, index) => (
             <View key={index} style={styles.maincontainer}>
-              <Text>{el}</Text>
+              <View
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  flexDirection: "row",
+                  // flexWrap: "wrap",
+                  justifyContent: "space-around",
+                  paddingHorizontal:10
+                }}
+              >
+                <View>
+                  <Image
+                    style={{ width: 50, height: 50 }}
+                    source={require("./../assets/Notification.png")}
+                  />
+                </View>
+                <View style={{paddingLeft:40}}>
+                  <Text>{el}</Text>
+                </View>
+              </View>
             </View>
           ))}
         </ScrollView>
