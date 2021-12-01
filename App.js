@@ -12,6 +12,7 @@ import Withdrawals from "./components/Withdrawals/Withdrawals";
 import Preferences from "./components/Preferences";
 import Account_Statement from "./components/Account_Statement";
 import MyTab from "./components/UnifiedInformationPage/MyTab";
+import Referral from "./components/Referrals/Referral";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="MyTab"
+        initialRouteName="Referral"
         screenOptions={{
           headerShown: false,
         }}
@@ -34,6 +36,8 @@ function App() {
         <Stack.Screen name="Preferences" component={Preferences} />
         <Stack.Screen name="Account_Statement" component={Account_Statement} />
         <Stack.Screen name="MyTab" component={MyTab} />
+        <Stack.Screen name="Referral" component={Referral} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
