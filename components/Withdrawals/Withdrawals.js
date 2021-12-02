@@ -23,7 +23,7 @@ export default function Withdrawals() {
         {booster: 'BOOSTER 2K', amount: '1000.00', of: '1750', boosterId: '#28436372', expiryDate: '24 Aug, 11: 37 AM', status: 'CLAIMED', key: Math.random() * 10000},
         {booster: 'BOOSTER 2K', amount: '1000.00', of: '1750', boosterId: '#28436372', expiryDate: '24 Aug, 11: 37 AM', status: 'EXPIRED', key: Math.random() * 10000},
     ]);
-    const [requestWithdrawal, setRequestWithdrawal] = useState(true);
+    const [requestWithdrawal, setRequestWithdrawal] = useState(false);
     const [bonusBooster, setBonusBooster] = useState(true);
 
     return (

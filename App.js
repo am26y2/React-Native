@@ -21,7 +21,7 @@ function App() {
     // <Login/>
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Personal_Details"
+        initialRouteName="MyTabs"
         screenOptions={{
           headerShown: false,
         }}
